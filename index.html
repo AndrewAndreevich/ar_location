@@ -1,65 +1,26 @@
-
-
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-        <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>GeoAR.js demo</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  </head>
 
-        
-        <script>
-            console.log("Hello");
-            function sayHello() {
-                alert("Hello, World!");
-            }
-
-            const queryString = window.location.search;
-            console.log(queryString);
-            const urlParams = new URLSearchParams(queryString);
-            console.log(urlParams);
-           
-            const object = urlParams.get('object');
-            
-            console.log(object);
-            
-//file:///C:/Users/Andrey Andreevich/Downloads/ar(1)/index.html?object=https://andrewandreevich.github.io/ar_test_fw2h87kdn/assets/marker.patt
-            
-            window.onload = function() {
-                console.log("Set assets");
-                   //when the document is finished loading, replace everything
-                   //between the <a ...> </a> tags with the value of splitText
-
-               var objectEl = document.getElementById("a-image");
-               objectEl.setAttribute("src", object); 
-               console.log(objectEl);
-                
-                
-              // document.getElementById("ar-object").src=object;
-            } 
-
-    </script>
-                
-    </head>
-
-    <body style="margin: 0; overflow: hidden;">
-        <a-scene
-            embedded
-            loading-screen="enabled: false;"
-            arjs="sourceType: webcam; debugUIEnabled: false;"
-        >
-                <a-image
-                    src=""
-                    look-at="[gps-camera]"
-                    scale="1 1 1"
-                    gps-entity-place="latitude: 41.67621267352269; longitude: 44.81487286084304;"
-                ></a-image>
-
-            <a-camera gps-camera rotation-reader></a-camera>
-        </a-scene>
-    </body>
+  <body>
+    <a-scene
+      vr-mode-ui="enabled: false"
+      arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
+    >
+      <a-text
+        value="This content will always face you."
+        look-at="[gps-camera]"
+        scale="120 120 120"
+        gps-entity-place="latitude: 41.67621267352269; longitude: 44.81487286084304;"
+      ></a-text>
+      <a-camera gps-camera rotation-reader> </a-camera>
+    </a-scene>
+  </body>
 </html>
-
-
