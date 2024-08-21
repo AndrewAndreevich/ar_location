@@ -7,6 +7,20 @@
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
+    <script>
+    AFRAME.registerComponent('cursor-listener', {
+  init: function() {
+    var data = this.data;
+    var el = this.el;
+    el.addEventListener('click', function(evt) {
+      alert('click +' + el);
+    });
+  }
+});
+</script>
+
+    
   </head>
 
   <body>
@@ -17,39 +31,44 @@
       <a-text
         value="1"
         look-at="[gps-camera]"
-        scale="120 120 120"
+        scale="60 60 60"
         gps-entity-place="latitude: 41.67678163100398; longitude: 44.81477093690046;"
+        cursor-listener   
       ></a-text>
 
          <a-text
         value="2"
         look-at="[gps-camera]"
-        scale="120 120 120"
+        scale="60 60 60"
         gps-entity-place="latitude: 41.67624873435741; longitude: 44.81395554535993;"
+           cursor-listener   
       ></a-text>
 
          <a-text
         value="3"
         look-at="[gps-camera]"
-        scale="120 120 120"
+        scale="60 60 60"
         gps-entity-place="latitude: 41.67634489648458; longitude: 44.81560778611312;"
+           cursor-listener   
       ></a-text>
 
          <a-text
         value="4"
         look-at="[gps-camera]"
-        scale="120 120 120"
+        scale="60 60 60"
         gps-entity-place="latitude: 41.67617260590486; longitude: 44.814835309916816;"
+           cursor-listener   
       ></a-text>
 
          <a-text
         value="5"
         look-at="[gps-camera]"
-        scale="120 120 120"
+        scale="60 60 60"
         gps-entity-place="latitude: 41.67636493024299; longitude: 44.814829945498786;"
+        cursor-listener   
       ></a-text>
       
-      <a-camera gps-camera rotation-reader> </a-camera>
+      <a-camera gps-camera gps-camera="gpsMinDistance:1;" rotation-reader> </a-camera>
     </a-scene>
   </body>
 </html>
